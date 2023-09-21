@@ -1,5 +1,6 @@
 from typing import Any
 from statemachine import StateMachine, State
+import lab_Students
 
 class LabTourMachine(StateMachine):
     "Quori Lab Tour"
@@ -33,7 +34,7 @@ class LabTourMachine(StateMachine):
     )
 
     def __init__(self):
-        self.locations = 5
+        self.locations = 6
         super(LabTourMachine, self).__init__()
 
     def no_more_locations(self):
@@ -41,9 +42,6 @@ class LabTourMachine(StateMachine):
     
     def reached_location(self):
         return True
-    
-    def on_enter_talking(self):
-        self.locations -= 1
     
     def person_present(self):
         return True
@@ -65,12 +63,18 @@ class LabTourMachine(StateMachine):
 
     def on_enter_talking(self):
         print("Talking!")
+        print(lab_Students.labStudentDescriptions[lab_Students.phd_students[self.locations]])
+        self.locations -= 1
     
     def on_enter_pause(self):
         print("Person is talking!")
 
 q = LabTourMachine()
 q.start_tour()
+q.check_list()
+q.check_location()
+q.check_person()
+q.check_person_talking()
 q.check_list()
 q.check_location()
 q.check_person()
