@@ -1,5 +1,5 @@
 import pyrebase
-import firebase_config
+import quori.firebase_config as firebase_config
 
 
 firebase = pyrebase.initialize_app(firebase_config.firebaseConfig)

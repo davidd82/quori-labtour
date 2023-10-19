@@ -1,3 +1,11 @@
+/__pycache__
+/.pytest_cache
+
+gitignore
+example.png
+
+html.txt
 configs.txt
 
 firebase_config.py
+test_example.py

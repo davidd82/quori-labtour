@@ -1,6 +1,6 @@
 from typing import Any
 from statemachine import StateMachine, State
-import lab_Students
+import quori.lab_Students as lab_Students
 
 class LabTourMachine(StateMachine):
     "Quori Lab Tour"
