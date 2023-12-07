@@ -43,3 +43,7 @@ phd_students = ["Leticia Pinto Alva", "Nathan Dennler", "A'di Dust",
 student_dict = {}
 get_Phd_info(student_dict, phd_students)
 pprint.pprint(student_dict)
+
+with open("myfile.txt", 'w') as f:  
+    for key, value in student_dict.items():  
+        f.write('%s:%s\n' % (key, value))

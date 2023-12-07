@@ -2,6 +2,8 @@ from typing import Any
 from statemachine import StateMachine, State
 import quori.lab_Students as lab_Students
 
+from playsound import playsound
+
 class LabTourMachine(StateMachine):
     "Quori Lab Tour"
     greeting = State(initial=True)
@@ -36,6 +38,8 @@ class LabTourMachine(StateMachine):
     def __init__(self):
         self.locations = 6
         super(LabTourMachine, self).__init__()
+        playsound('../scripts/speech.mp3')
+
 
     def no_more_locations(self):
         return self.locations == 0
