@@ -5,10 +5,10 @@ Mina Kian: Mina is a 1st year Ph.D. student in the computer science department a
 Amy O'Connell: Amy is a third year Ph.D. student in the Computer Science department at USC. She received her BA in Computer Science from Vassar College and worked with the Autonomous Field Robotics Laboratory at the University of South Carolina.
 Zhonghao Shi: Zhonghao is extremely interested in working on human-centered computational problems for people with special needs. Currently, he is working on designing computational models that could recognize the affective state of learning for children with Autism Spectrum Disorder (ASD) so that we could respond with personalized feedback to proceed learning at an optimal pace for each child.
 Kaleen Shrestha: Kaleen is a first year Ph.D. student in the Computer Science department at USC. She received a B.S. in Computer Science and an M.S. in Natural Language Processing from the University of California, Santa Cruz.
-GOTO Nathan's Desk: Astro, go to Nathan's Desk
-GOTO Amy's Desk: Astro, go to Amy's Desk
-GOTO Mina's Desk: Astro, go to Mina's Desk
-GOTO Zhonghao's Desk: Astro, go to Zhonghao's Desk
-GOTO Leticia's Desk: Astro, go to Leticia's Desk
-GOTO A'di's Desk: Astro, go to A'Di's Desk
-GOTO Kaleen's Desk: Astro, go to Kaleen's Desk
+GOTO Nathan's Desk: Astro,<break time="1s"/> go to Nathan's Desk
+GOTO Amy's Desk: Astro,<break time="1s"/> go to Amy's Desk
+GOTO Mina's Desk: Astro,<break time="1s"/>  go to <prosody rate="70%" volume="x-loud">  Mi na's  Desk </prosody>
+GOTO Zhonghao's Desk: Astro,<break time="1s"/> go to John how's Desk
+GOTO Leticia's Desk: Astro, <break time="1s"/>go to Leticia's Desk
+GOTO A'di's Desk: Astro, <break time="1s"/> go to <prosody rate="70%" volume="x-loud"> <phoneme alphabet='x-sampa' ph='A".di.z'> A'Di's </phoneme> Desk </prosody>
+GOTO Kaleen's Desk: Astro,<break time="1s"/> go to Kaleen's Desk
