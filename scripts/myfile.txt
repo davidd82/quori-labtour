@@ -12,3 +12,10 @@ GOTO Zhonghao's Desk: Astro,<break time="1s"/> go to John how's Desk
 GOTO Leticia's Desk: Astro, <break time="1s"/>go to Leticia's Desk
 GOTO A'di's Desk: Astro, <break time="1s"/> go to <prosody rate="70%" volume="x-loud"> <phoneme alphabet='x-sampa' ph='A".di.z'> A'Di's </phoneme> Desk </prosody>
 GOTO Kaleen's Desk: Astro,<break time="1s"/> go to Kaleen's Desk
+NEW_GOTO Nathan's Desk: Astro,<break time="1s"/> go to last stop of the tour
+NEW_GOTO Amy's Desk: Astro,<break time="1s"/> go to first stop on the lab tour
+NEW_GOTO Mina's Desk: Astro,<break time="1s"/>  go to stop number five
+NEW_GOTO Zhonghao's Desk: Astro,<break time="1s"/> go to stop three
+NEW_GOTO Leticia's Desk: Astro, <break time="1s"/> go to second stop
+NEW_GOTO A'di's Desk: Astro, <break time="1s"/> go to stop number four
+NEW_GOTO Kaleen's Desk: Astro,<break time="1s"/> go to the sixth stop of the tour

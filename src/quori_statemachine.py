@@ -12,6 +12,10 @@ GOTO_Commands = ["../scripts/audio/GOTO A'di's Desk.mp3","../scripts/audio/GOTO 
              "../scripts/audio/GOTO Leticia's Desk.mp3","../scripts/audio/GOTO Mina's Desk.mp3","../scripts/audio/GOTO Nathan's Desk.mp3",
              "../scripts/audio/GOTO Zhonghao's Desk.mp3"]
 
+NEW_GOTO_Commands = ["../scripts/audio/NEW_GOTO Nathan's Desk.mp3", "../scripts/audio/NEW_GOTO Kaleen's Desk.mp3",
+             "../scripts/audio/NEW_GOTO Mina's Desk.mp3","../scripts/audio/NEW_GOTO A'di's Desk.mp3",
+             "../scripts/audio/NEW_GOTO Zhonghao's Desk.mp3", "../scripts/audio/NEW_GOTO Leticia's Desk.mp3",
+             "../scripts/audio/NEW_GOTO Amy's Desk.mp3"]
 people = {
     "A'di"     : 0,
     'Amy'      : 1,
@@ -95,7 +99,7 @@ class LabTourMachine(StateMachine):
 
     def on_enter_moving(self):
         print("Moving to next location!")
-        playsound(GOTO_Commands[self.locations])
+        playsound(NEW_GOTO_Commands[self.locations])
         input('is astro done moving?')
        
 
