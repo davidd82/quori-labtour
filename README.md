@@ -8,6 +8,6 @@ Anticipated Approach: We can use the Astro robot to move around the room. Previo
 # Getting Started
 In the 'src' folder run
 
-'python3 quori_statemachine.py'
+`python3 quori_statemachine.py`
 
 to begin the Astro Interaction Lab Tour.
