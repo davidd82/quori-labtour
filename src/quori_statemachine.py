@@ -4,26 +4,15 @@ from playsound import playsound
 import time
 from transitions import Machine
 
-locations = ["../scripts/audio/A'di.mp3",'../scripts/audio/Amy.mp3','../scripts/audio/Kaleen.mp3',
-             '../scripts/audio/Leticia.mp3','../scripts/audio/Mina.mp3','../scripts/audio/Nathan.mp3',
-             '../scripts/audio/Zhonghao.mp3']
-
-GOTO_Commands = ["../scripts/audio/GOTO A'di's Desk.mp3","../scripts/audio/GOTO Amy's Desk.mp3","../scripts/audio/GOTO Kaleen's Desk.mp3",
-             "../scripts/audio/GOTO Leticia's Desk.mp3","../scripts/audio/GOTO Mina's Desk.mp3","../scripts/audio/GOTO Nathan's Desk.mp3",
-             "../scripts/audio/GOTO Zhonghao's Desk.mp3"]
-
-NEW_GOTO_Commands = ["../scripts/audio/NEW_GOTO Nathan's Desk.mp3", "../scripts/audio/NEW_GOTO Kaleen's Desk.mp3",
-             "../scripts/audio/NEW_GOTO Mina's Desk.mp3","../scripts/audio/NEW_GOTO A'di's Desk.mp3",
-             "../scripts/audio/NEW_GOTO Zhonghao's Desk.mp3", "../scripts/audio/NEW_GOTO Leticia's Desk.mp3",
-             "../scripts/audio/NEW_GOTO Amy's Desk.mp3"]
-people = {
-    "A'di"     : 0,
-    'Amy'      : 1,
-    'Kaleen'   : 2,
-    'Leticia'  : 3,
-    'Mina'     : 4,
-    'Nathan'   : 5,
-    'Zhonghao' : 6,
+# Change numbers to rearange the order of the tour
+STOP_2_STUDENTS = {
+    4 : "A'di",
+    1 : 'Amy',
+    6 : 'Kaleen',
+    2 : 'Leticia',
+    5 : 'Mina',
+    7 : 'Nathan',
+    3 : 'Zhonghao',
 }
 
 class LabTourMachine(StateMachine):
@@ -44,8 +33,9 @@ class LabTourMachine(StateMachine):
         self.machine = Machine(model=self, states=LabTourMachine.STATES, initial='init')
         self.person_there = person_there
         self.no_more_locations = no_more_locations
-        self.locations = 6
-        playsound('../scripts/audio/intro.mp3')
+        self.key_index = 1
+        #playsound('../scripts/audio/intro.mp3') 
+        time.sleep(2)
     
         self.machine.add_transition(trigger='proceed',source='init', dest='check_list')
 
@@ -83,12 +73,12 @@ class LabTourMachine(StateMachine):
 
     def on_enter_check_person_talking(self):
         response = input('is person done talking?')
-        self.locations -= 1
-        print(self.locations)
+        self.key_index += 1
+        print(self.key_index)
 
     def on_enter_check_list(self):
         print("Checking List!")
-        if self.locations == -1:
+        if self.key_index == len(STOP_2_STUDENTS) + 1:
             self.no_more_locations = True
         else:
             self.no_more_locations = False
@@ -99,15 +89,16 @@ class LabTourMachine(StateMachine):
 
     def on_enter_moving(self):
         print("Moving to next location!")
-        playsound(NEW_GOTO_Commands[self.locations])
+        playsound(f"../scripts/audio/NEW_GOTO {STOP_2_STUDENTS[self.key_index]}'s Desk.mp3")
         input('is astro done moving?')
        
 
     def on_enter_talking(self):
         print("Talking!")
-        playsound(locations[self.locations])
-        self.locations -= 1
-        print(self.locations)
+        playsound(f"../scripts/audio/{STOP_2_STUDENTS[self.key_index]}.mp3")
+        time.sleep(2)
+        self.key_index += 1
+        print(self.key_index)
 
     
 
