@@ -6,13 +6,13 @@ from transitions import Machine
 
 # Change numbers to rearange the order of the tour
 STOP_2_STUDENTS = {
-    4 : "A'di",
-    1 : 'Amy',
-    6 : 'Kaleen',
-    2 : 'Leticia',
-    5 : 'Mina',
-    7 : 'Nathan',
-    3 : 'Zhonghao',
+    4 : "A'di Dust",
+    1 : "Amy O'Connell",
+    6 : 'Kaleen Shrestha',
+    2 : 'Leticia Pinto Alva',
+    5 : 'Mina Kian',
+    7 : 'Nathan Dennler',
+    3 : 'Zhonghao Shi',
 }
 
 class LabTourMachine(StateMachine):
@@ -89,7 +89,7 @@ class LabTourMachine(StateMachine):
 
     def on_enter_moving(self):
         print("Moving to next location!")
-        playsound(f"../scripts/audio/NEW_GOTO {STOP_2_STUDENTS[self.key_index]}'s Desk.mp3")
+        playsound(f"../scripts/audio/stop{self.key_index}.mp3")
         input('is astro done moving?')
        
 
