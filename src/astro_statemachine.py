@@ -72,6 +72,7 @@ class LabTourMachine(StateMachine):
             self.person_there = False
 
     def on_enter_check_person_talking(self):
+        playsound(f"../scripts/audio/{STOP_2_STUDENTS[self.key_index]}_present.mp3")
         response = input('is person done talking?')
         self.key_index += 1
         print(self.key_index)
@@ -88,8 +89,13 @@ class LabTourMachine(StateMachine):
         playsound('../scripts/audio/outro.mp3')
 
     def on_enter_moving(self):
+        play_again = ''
         print("Moving to next location!")
         playsound(f"../scripts/audio/stop{self.key_index}.mp3")
+        play_again = input('repeat command?')
+        while play_again != 'n':
+            playsound(f"../scripts/audio/stop{self.key_index}.mp3")
+            play_again = input('repeat command?')
         input('is astro done moving?')
        
 
