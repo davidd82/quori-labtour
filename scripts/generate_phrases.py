@@ -5,9 +5,15 @@ import os
 import sys
 import subprocess
 from tempfile import gettempdir
+from pydub import AudioSegment
+from allosaurus.app import read_recognizer
+import pickle
+import soundfile as sf
 
 session = Session(profile_name="default")
 polly = session.client("polly")
+model = read_recognizer()
+
 
 with open('./myfile.txt') as fname:
     all_lines = fname.readlines()
@@ -42,3 +48,19 @@ for line in all_lines:
                 # Could not write to file, exit gracefully
                 print(error)
                 sys.exit(-1)
+
+        sound_fname = f"{output[:-4]}.wav"
+        data ,samplerate = sf.read(output)
+        sf.write(sound_fname, data, samplerate)
+
+        out = model.recognize(sound_fname, timestamp = True)
+
+
+
+        times = [line.split(" ")[0] for line in out.split("\n")]
+        pickle.dump(times, open(f"{output[:-4]}.pkl","wb"))
+
+
+
+
+
